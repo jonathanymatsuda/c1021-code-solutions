@@ -14,10 +14,10 @@
         <input type="email" name="email" size="20" maxlength="50" id="email-textbox" />
       </div>
       <div>
-        <span>Why is coding cool?</span>
+        <label>Why is coding cool?</label>
       </div>
       <div>
-        <select name="reasons">
+        <select name="reasons" id="reasons-coding-cool">
           <option value="option">Select an Option</option>
           <option value="interesting">Because it's interesting</option>
           <option value="fun">Becuase it's fun</option>
@@ -37,8 +37,8 @@
       <div>
         <span>Would you like to sign up for more information?</span>
         <br />
-        <input type="checkbox" name="Sign me up!" value="Sign me up!" id="Sign Up"/>
-        <label for="Sign Up">Sign me up!</label>
+        <input type="checkbox" name="sign-me-up" value="yes" id="sign-up"/>
+        <label for="sign-up">Sign me up!</label>
       </div>
       <div>
         <label for="comment-textbox">
@@ -48,9 +48,7 @@
         <textarea name="comments" cols="20" rows="8" id="comment-textbox"></textarea>
       </div>
       <div>
-        <label for="submit-button">
-          <input type="submit" value="Submit" id="submit-button"/>
-        </label>
+        <input type="submit" value="submitted" id="submit-button"/>
       </div>
     </form>
   </body>
