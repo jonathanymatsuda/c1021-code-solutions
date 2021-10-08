@@ -15,7 +15,7 @@
 }
 
 .column-one-third {
-  width: calc(100% / 3);
+  width: 33%;
 }
 
 .column-one-fourth {
@@ -23,7 +23,7 @@
 }
 
 .column-two-thirds {
-  max-width: 62%;
+  max-width: 66%;
 }
 
 img {
