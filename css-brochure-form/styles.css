@@ -21,6 +21,7 @@
 .button {
   display: flex;
   justify-content: right;
+  padding: 30px;
 }
 
 label {
@@ -34,7 +35,7 @@ input,
 select {
   font-size: 20px;
   width: 515px;
-  height: 48px;
+  height: 50px;
   padding: 10px;
   margin: 20px;
   border: solid;
@@ -64,4 +65,7 @@ button {
   background: #ee6053;
   border-radius: 25px;
   border-style: none;
+  position: relative;
+  bottom: 30px;
+  left: 10px;
 }
