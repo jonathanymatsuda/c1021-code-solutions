@@ -2,6 +2,11 @@
   font-family: 'Brandon Grotesque', sans-serif;
 }
 
+.container {
+  width: 500px;
+  margin: auto;
+}
+
 .banner {
   display: flex;
   justify-content: center;
@@ -21,20 +26,19 @@
 .button {
   display: flex;
   justify-content: right;
-  padding: 30px;
 }
 
 label {
   font-size: 15px;
   vertical-align: bottom;
-  line-height: 0.5px;
-  text-indent: -35px;
+  line-height: 0.2px;
+  padding: 40px;
 }
 
 input,
 select {
   font-size: 20px;
-  width: 515px;
+  width: 100%;
   height: 50px;
   padding: 10px;
   margin: 20px;
@@ -66,6 +70,5 @@ button {
   border-radius: 25px;
   border-style: none;
   position: relative;
-  bottom: 30px;
-  left: 10px;
+  left: 20px;
 }
