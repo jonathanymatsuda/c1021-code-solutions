@@ -3,20 +3,15 @@
   font-family: 'Lato', sans-serif;
 }
 
-body {
-  /* margin: 0; */
-}
-
 .container {
   background-color: #1897da;
-  padding: 5px;
 }
 
 .header {
   text-align: center;
   color: white;
   font-size: 1.4em;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   line-height: 120px;
 }
 
@@ -30,30 +25,47 @@ body {
 }
 
 .text-row {
-  text-align: center;
+  justify-content: center;
+  gap: 220px;
+}
+
+.column-one-third {
+  width: auto;
 }
 
 .img-column {
-  width: auto;
-  height: auto;
   background: white;
   border-radius: 50%;
   position: relative;
   bottom: 30px;
 }
 
+.text-column {
+  width: 8em;
+  position: relative;
+  bottom: 30px;
+}
+
 .icon-image {
-  width: 130px;
-  height: auto;
+  width: 8em;
   padding: 35px;
 }
 
 h3 {
   color: white;
+  width: 14em;
   font-size: 20px;
-  font-weight: 900;
+  text-align: center;
+  position: relative;
+  right: 75px;
 }
 
 p {
   color: #d8e2f3;
+  width: 238px;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  right: 50px;
+  bottom: 10px;
 }
