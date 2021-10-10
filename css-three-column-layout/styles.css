@@ -19,11 +19,7 @@
   display: flex;
 }
 
-.img-row {
-  justify-content: center;
-  gap: 220px;
-}
-
+.img-row,
 .text-row {
   justify-content: center;
   gap: 220px;
@@ -34,7 +30,7 @@
 }
 
 .img-column {
-  background: white;
+  background-color: white;
   border-radius: 50%;
   position: relative;
   bottom: 30px;
@@ -62,7 +58,7 @@ h3 {
 
 p {
   color: #d8e2f3;
-  width: 238px;
+  width: 17em;
   font-size: 14px;
   text-align: center;
   position: relative;
