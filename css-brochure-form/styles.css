@@ -1,0 +1,74 @@
+* {
+  font-family: 'Brandon Grotesque', sans-serif;
+}
+
+.container {
+  width: 500px;
+  margin: auto;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ee6053;
+}
+
+.submission-form {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.button {
+  display: flex;
+  justify-content: right;
+}
+
+label {
+  font-size: 15px;
+  vertical-align: bottom;
+  line-height: 0.2px;
+  padding: 40px;
+}
+
+input,
+select {
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin: 20px;
+  border: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 1px;
+}
+
+select {
+  background-color: #f0efef;
+}
+
+::placeholder {
+  font-family: 'AtlasGrotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 2.5px;
+  color: #bfbfbf;
+}
+
+button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  width: 130px;
+  height: 47px;
+  background: #ee6053;
+  border-radius: 25px;
+  border-style: none;
+  position: relative;
+  left: 20px;
+}
