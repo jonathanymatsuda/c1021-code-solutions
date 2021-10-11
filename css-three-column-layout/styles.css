@@ -3,8 +3,13 @@
   font-family: 'Lato', sans-serif;
 }
 
-.container {
+body {
   background-color: #1897da;
+}
+
+.container {
+  width: 1200px;
+  margin: auto;
 }
 
 .header {
@@ -12,7 +17,7 @@
   color: white;
   font-size: 1.4em;
   letter-spacing: 0.5px;
-  line-height: 120px;
+  line-height: 75px;
 }
 
 .row {
@@ -32,14 +37,10 @@
 .img-column {
   background-color: white;
   border-radius: 50%;
-  position: relative;
-  bottom: 30px;
 }
 
 .text-column {
   width: 8em;
-  position: relative;
-  bottom: 30px;
 }
 
 .icon-image {
