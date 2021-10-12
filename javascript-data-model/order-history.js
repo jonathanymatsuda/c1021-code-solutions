@@ -6,7 +6,7 @@ var orderHistory = [
     orderNumber: 12345,
     deliveryConfirmation: 'Delivered Aug 8, 2020',
     productInfo: {
-      title: 'JavaScript got impatient programmers',
+      title: 'JavaScript for impatient programmers',
       author: 'Rauschmayer, Dr. Axel',
       returnWindow: 'Return window closed on Sep 7, 2020',
       price: 31.55
@@ -56,3 +56,5 @@ var orderHistory = [
     }
   }
 ];
+
+console.log('data model for order history:', orderHistory);
