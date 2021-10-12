@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  width: 90%;
+  padding: 50px;
+}
+
+.row {
+  display: flex;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-40 {
+  gap: 40px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.light-gray-text {
+  color: #cfcfcf;
+}
+
+.page-header {
+  font-size: 13px;
+}
+
+.font-avenir {
+  font-family: 'Avenir', sans-serif;
+}
+
+img {
+  width: 9%;
+  height: auto;
+}
+
+button {
+  background-color: #294464;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 29px;
+}
+
+.contact-us-button {
+  width: 86px;
+}
+
+.hero-image {
+  background-image: url(images/hero.jpg);
+}
