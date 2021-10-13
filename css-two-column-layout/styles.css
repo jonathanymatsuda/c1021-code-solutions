@@ -36,15 +36,15 @@ p.header-paragraph {
   display: flex;
 }
 
-.top-left,
-.top-right,
-.bottom-left,
-.bottom-right {
-  display: flex;
+.one-fourth-column {
   justify-content: center;
   padding: 55px;
   position: relative;
   top: 15px;
+}
+
+.half-column {
+  width: 50%;
 }
 
 .icon {
