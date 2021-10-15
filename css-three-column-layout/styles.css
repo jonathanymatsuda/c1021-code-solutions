@@ -37,6 +37,7 @@ body {
 
 .white-background {
   background-color: white;
+  height: 130px;
   border-radius: 50%;
 }
 
