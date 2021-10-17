@@ -18,6 +18,10 @@ body {
   margin: auto;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 h1 {
   font-size: 50px;
   font-weight: 550;
@@ -36,39 +40,26 @@ p.header-paragraph {
   display: flex;
 }
 
-.one-fourth-column {
-  justify-content: center;
-  padding: 55px;
-  position: relative;
-  top: 15px;
-}
-
 .half-column {
-  display: flex;
   width: 50%;
 }
 
 .icon {
+  width: 110px;
+  height: auto;
   position: relative;
-  bottom: 30px;
+  bottom: 2px;
 }
 
 h3 {
   font-weight: 400;
   text-transform: uppercase;
-  width: 60%;
 }
 
 p.body-paragraph {
   color: #616161;
   font-weight: 300;
   line-height: 30px;
-  width: 85%;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
 }
 
 button {
