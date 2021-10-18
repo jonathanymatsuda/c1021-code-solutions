@@ -60,10 +60,6 @@
   align-items: center;
 }
 
-.page-header {
-  font-size: 12px;
-}
-
 .border-bottom {
   border-bottom: 1px solid #ebebeb;
   padding: 10px;
@@ -111,7 +107,12 @@
 }
 
 .footer-background-height {
-  height: 85px;
+  height: 25px;
+}
+
+.footer-image {
+  position: relative;
+  bottom: 40px;
 }
 
 .header-image {
@@ -120,7 +121,8 @@
 }
 
 .nav-item {
-  font-size: 15px;
+  font-size: 13px;
+  margin: 7px;
 }
 
 img {
@@ -194,6 +196,6 @@ button {
   text-align: left;
   padding: 50px;
   width: 50%;
-  bottom: 500px;
+  bottom: 520px;
   left: 100px;
 }
