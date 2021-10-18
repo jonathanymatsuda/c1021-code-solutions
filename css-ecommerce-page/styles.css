@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  font-family: 'DM sans', sans-serif;
+  width: 1400px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.one-fifth-column {
+  width: 20%;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.background-color {
+  background-color: #fef6f0;
+}
+
+.font-color {
+  color: #e8e8e8;
+}
+
+img {
+  width: 100%;
+  height: 80%;
+}
