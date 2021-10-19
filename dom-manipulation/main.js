@@ -17,7 +17,7 @@ function buttonChange() {
     $hotButton.className = 'hot-button warm';
   } else if
   (numberOfClicks < 16) {
-    $hotButton.classNamne = 'hot-button hot';
+    $hotButton.className = 'hot-button hot';
   } else { $hotButton.className = 'hot-button nuclear'; }
 }
 
