@@ -20,6 +20,10 @@
   justify-content: center;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .background-color {
   background-color: #fef6f0;
 }
