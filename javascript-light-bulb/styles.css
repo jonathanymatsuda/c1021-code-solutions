@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.container.on {
+  background-color: #fef9f1;
+}
+
+.container.off {
+  background-color: #111;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.margin-center {
+  margin: 17rem;
+}
+
+.button-light {
+  border: none;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.button-light.on {
+  background-color: #faea84;
+  box-shadow: 0 5px 15px rgba(255, 249, 222, 1);
+}
+
+.button-light.off {
+  background-color: #252525;
+}
