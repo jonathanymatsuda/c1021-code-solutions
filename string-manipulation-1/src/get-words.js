@@ -1,28 +1,14 @@
 /* exported getWords */
 // psuedocode
-// Create storage for the words
-// Identify if there are spaces
-// If there are spaces, take the current word up until that space and place it in storage
-// Otherwise, recognize the space and move onto the next character
-// Return the storage
+// Identify the words have space between them
+// Separate the words that have a space and put them in a list
+// If there are no spaces put the single word in a list
+// If the above two steps are not applicable and there are no words return a empty list
 
-var wordList = [' '];
-// var word = '';
 function getWords(string) {
-  if (string === []) {
-    return wordList;
-  } else {
+  if (string) {
     return string.split(' ');
+  } else {
+    return string.split('');
   }
 }
-
-//   for (var i = 0; i < string.length; i++) {
-//     if (string[i] !== '') {
-//       word += string[i];
-//     } else {
-//       wordList.push(word);
-//       word = '';
-//     }
-//   }
-//   return wordList;
-// }
