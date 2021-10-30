@@ -5,7 +5,7 @@ function typingTutor(event) {
     $character[indexNumber].className = 'text-correct';
     indexNumber++;
     $character[indexNumber].classList.add('tracker');
-  } else if ($character[indexNumber].textContent !== event.key) {
+  } else {
     $character[indexNumber].className = 'text-wrong';
   }
 }
