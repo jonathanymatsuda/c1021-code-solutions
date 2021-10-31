@@ -1,1 +1,2 @@
 /* exported toObject */
+// pseudocode
