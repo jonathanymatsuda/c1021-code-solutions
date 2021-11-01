@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.dimmer-off {
+  background-color: white;
+}
+
+.dimmer-on {
+  background-color: #323232;
+}
+
+.open-button {
+  width: 200px;
+  height: 50px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: blue;
+  border: 0.5px solid navy;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+
+.open-button-dimmer {
+  width: 200px;
+  height: 50px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: blue;
+  border: 0.5px solid navy;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  opacity: 0.4;
+}
+
+.modal {
+  display: none;
+}
+
+.modal-open {
+  width: 435px;
+  height: 240px;
+  padding: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  transform: translate(0, 75%);
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  background-color: white;
+}
+
+.modal-button {
+  width: 95px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: #eb5d5d;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  font-family: sans-serif, Arial;
+  line-height: 50px;
+}
