@@ -8,10 +8,8 @@
 
 function tail(array) {
   var tailList = [];
-  for (var i = 0; i < array.length; i++) {
-    if (i > 0) {
-      tailList.push(array[i]);
-    }
+  for (var i = 1; i < array.length; i++) {
+    tailList.push(array[i]);
   }
   return tailList;
 }

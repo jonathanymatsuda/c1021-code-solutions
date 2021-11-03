@@ -9,10 +9,8 @@
 
 function initial(array) {
   var initialList = [];
-  for (var i = 0; i < array.length; i++) {
-    if (i < array.length - 1) {
-      initialList.push(array[i]);
-    }
+  for (var i = 0; i < array.length - 1; i++) {
+    initialList.push(array[i]);
   }
   return initialList;
 }
