@@ -27,10 +27,10 @@ Account.prototype.withdraw = function (amount) {
 Account.prototype.getBalance = function () {
   var balance = 0;
   for (var transaction = 0; transaction < this.transactions.length; transaction++) {
-    if (this.transactions.type === 'deposit') {
-      balance = balance + 77;
-    } else {
-      balance = balance - this.amount;
+    if (this.transactions[transaction].type === 'deposit') {
+      balance += this.transactions[transaction].amount;
+    } else if (this.transactions[transaction].type === 'withdrawal') {
+      balance = balance - this.transactions[transaction].amount;
     }
   }
   return balance;
