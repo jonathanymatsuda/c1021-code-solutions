@@ -18,12 +18,21 @@ Bank.prototype.openAccount = function (holder, balance) {
 
 Bank.prototype.getAccount = function (number) {
   for (var account = 0; account < this.accounts.length; account++) {
-    if ((Number.isInteger(number)) && (this.accounts[account].number === number)) {
+    if (this.accounts[account].number === number) {
       return this.accounts[account];
-    } else if ((Number.isInteger(number)) && (this.accounts[account].number !== number)) {
-      return null;
     }
   }
+  return null;
 };
 
-Bank.prototype.getTotalAssets = function () {};
+Bank.prototype.getTotalAssets = function () {
+  var totalBalance = 0;
+  for (var account = 0; account < this.accounts.length; account++) {
+    if (this.accounts.length === 0) {
+      return 0;
+    } else {
+      totalBalance += this.accounts[account].getBalance();
+    }
+  }
+  return totalBalance;
+};
