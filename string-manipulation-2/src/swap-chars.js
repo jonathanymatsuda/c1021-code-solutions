@@ -11,6 +11,5 @@ function swapChars(firstIndex, secondIndex, string) {
       string[i] = string[firstIndex];
     }
   }
-  swappedString = swappedString + string[i];
-  return swappedString;
+  return swappedString.join('');
 }
