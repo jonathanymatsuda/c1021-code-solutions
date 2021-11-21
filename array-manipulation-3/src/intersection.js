@@ -1,6 +1,6 @@
 /* exported intersection */
 // psuedocode
-// Side note: could be similar to unique.js refer to it
+// Side note: could be similar to unique.js refer to it.
 // Create storage for the new array.
 // Begin to push each value in the first array to the new array only if it DOES exist in the second array.
 // If it does not exist in the second array, do not push it since we only want matching values from both the
