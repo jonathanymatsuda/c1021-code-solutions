@@ -1,7 +1,7 @@
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 // pseudocode
 // Create four player objects (playerOne, playerTwo, playerThree, playerFour)
-// 52 Bojects
+// 52 card objects
 
 // var playerOne = {
 //   name: 'Art',
@@ -26,7 +26,6 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 // var rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' ]
 // var suit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 // var deck = [];
-// var shuffledDeck = [];
 
 // function deckCreation() {
 //   for (var i = 0; i < rank.length; i++) {
@@ -39,13 +38,18 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 // }
 
 // function shuffle(deck) {
-//   for (var i = deck.length; i > 0; i--) {
-//     var randomizer = Math.floor(Math.random() * i);
-//     var shuffledCard = deck[randomizer];
-//     shuffledDeck.push(shuffledCard);
+//   for (var i = 0; i < deck.length; i++) {
+//     var temp = deck[i];
+//     var randomizer = Math.floor(Math.random() * deck.length);
+//     deck[i] = deck[randomizer];
+//     deck[randomizer] = temp
 //   }
-//   return shuffledDeck;
+//   return deck
 // }
 
-// deckCreation();
-// shuffle(deck);
+// function deal(name) {
+
+// }
+
+// var test = deckCreation();
+// shuffle(test);
