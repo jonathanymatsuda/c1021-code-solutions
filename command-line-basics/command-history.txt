@@ -1,0 +1,112 @@
+    1  whoami
+    2  exit
+    3  whoami
+    4  exit
+    5  ~/repos/c1021-code-solutions/http-messages
+    6  exit
+    7  whoami
+    8  ~/repos/c1021-code-solutions
+    9  exit
+   10  git status
+   11  ~/repos/c1021-code-solutions/http-messages
+   12  exit
+   13  cd ~/repos/c1021-code-solutions/
+   14  exit
+   15  cd ~/repos/ajax-project
+   16  git status
+   17  git add js/main.js
+   18  git commit -m "Figured out disabled attribute for inputs"
+   19  git push origin issue-2-user-can-view-logs 
+   20  git status
+   21  cd ..
+   22  cd c1021-code-solutions/
+   23  git status
+   24  git pull origin master
+   25  git branch es6-arrow-functions
+   26  git status
+   27  git switch es6-arrow-functions
+   28  git statuas
+   29  git status
+   30  git add es6-arrow-functions
+   31  git status
+   32  git commit -m "Completed es6-arrow-functions exercise"
+   33  git push origin es6-arrow-functions
+   34  git switch master
+   35  whoami
+   36  git pull origin master
+   37  git status
+   38  git branch command-line-basics
+   39  git status
+   40  cd command-line-basics
+   41  cd ~command-line-basics
+   42  cd ~/repos/c1021-code-solutions/command-line-basics
+   43  git switch command-line-basics
+   44  cd command-line-basics/
+   45  pwd
+   46  man
+   47  man man
+   48  man cat
+   49  cat laziness.txt
+   50  cat impatience.txt
+   51  cat hubris.txt
+   52  cat laziness.txt impatience.txt hubris.txt
+   53  cat laziness.txt impatience.txt hubris.txt > three-vritues.txt
+   54  cat three-virtues.txt
+   55  ren three-vritues.txt three-virtues.txt
+   56  mv three-virtues.txt
+   57  man ls
+   58  ls -a
+   59  ls -F
+   60  ls lfz-staff/
+   61  ls lfz-staff/ -a
+   62  ls lfz-staff/ -F
+   63  ls -aF lfz-staff > lfz-staff/contents.txt
+   64  cat lfz-staff/contents.txt
+   65  man pwd
+   66  pwd
+   67  pwd > i-was-here-.txt
+   68  ls
+   69  cat i-was-here-.txt
+   70  cat i-was-here.txt
+   71  man echo
+   72  echo 'Hello, World!'
+   73  echo 'Hello, World!' > hello.txt
+   74  ls
+   75  cat hello.txt
+   76  man touch
+   77  touch tag-youre-it.txt
+   78  touch boop.txt > snoop/
+   79  touch snoop/boop.txt
+   80  man touch
+   81  touch boop.txt/snoop
+   82  touch boop.txt > snoop
+   83  touch snoop/boop.txt
+   84  touch snoot/boop.txt
+   85  ls snoot/
+   86  man mkdir
+   87  mkdir parent
+   88  ls parent/
+   89  man mkdir
+   90  mkdir -p
+   91  mk -p parent/child/grandchild
+   92  mkdir -p parent/child/grandchild
+   93  touch parent/child/grandchild/.gitkeep
+   94  ls -a
+   95  man mv
+   96  mv pokiemans pokemon
+   97  ls
+   98  mv three-vritues.txt three-virtues.txt
+   99  mv i-was-here-.txt i-was-here.txt
+  100  man rm
+  101  rm lol.txt
+  102  ls
+  103  rm -r kill-me/
+  104  ls
+  105  rm snoop
+  106  man cp
+  107  cp and-then.txt no-and-then.txt
+  108  ls
+  109  cat and-then.txt no-and-then.txt
+  110  man history
+  111  history
+  112  history > command-history.txt
