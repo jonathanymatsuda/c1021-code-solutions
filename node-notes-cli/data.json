@@ -1,7 +1,8 @@
 {
-  "nextId": 4,
+  "nextId": 7,
   "notes": {
-    "1": "The event loop is hard to conceptualize.",
-    "2": "Prototypal inheritance is how JavaScript objects delegate behavior."
+    "1": "Test Update",
+    "2": "Prototypal inheritance is how JavaScript objects delegate behavior.",
+    "6": "Edited version"
   }
 }

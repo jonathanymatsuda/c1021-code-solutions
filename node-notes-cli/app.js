@@ -16,22 +16,16 @@ function create() {
 }
 
 function remove() {
-  for (const property in dataParsed.notes) {
-    if (process.argv[3] === property) {
-      delete dataParsed.notes[property];
-    }
-  }
+  const property = process.argv[3];
+  delete dataParsed.notes[property];
   fs.writeFile('./data.json', JSON.stringify(dataParsed, null, 2), err => {
     if (err) throw err;
   });
 }
 
 function update() {
-  for (const property in dataParsed.notes) {
-    if (process.argv[3] === property) {
-      dataParsed.notes[property] = process.argv[4];
-    }
-  }
+  const property = process.argv[3];
+  dataParsed.notes[property] = process.argv[4];
   fs.writeFile('./data.json', JSON.stringify(dataParsed, null, 2), err => {
     if (err) throw err;
   });
