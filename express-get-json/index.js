@@ -21,13 +21,11 @@ const grades = {
   }
 };
 
-const gradesData = [];
-for (const property in grades) {
-  gradesData.push(grades[property]);
-}
-
 app.get('/api/grades', function (req, res) {
-  // console.log(req.method);
+  const gradesData = [];
+  for (const property in grades) {
+    gradesData.push(grades[property]);
+  }
   res.json(gradesData);
 });
 
