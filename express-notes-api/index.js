@@ -12,8 +12,8 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
-  if (Number.isInteger(id) && id <= 0) {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id <= 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (dataObject.notes[id] !== undefined) {
     res.status(200).json(dataObject.notes[id]);
@@ -45,7 +45,7 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
+  const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (dataObject.notes[id] === undefined) {
@@ -65,22 +65,22 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.put('/api/notes/:id', (req, res) => {
   const updatedNote = req.body;
-  const id = req.params.id;
+  const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (updatedNote.content === undefined) {
-    res.status(400).json({ error: 'content is a required field ' });
-  } else if (updatedNote.content !== undefined && dataObject.notes[id] === undefined) {
+    res.status(400).json({ error: 'content is a required field' });
+  } else if (dataObject.notes[id] === undefined) {
     res.status(404).json({ error: 'cannot find note with id ' + id });
-  } else if (updatedNote.content !== undefined && dataObject.notes[id] !== undefined) {
+  } else if (dataObject.notes[id] !== undefined) {
+    updatedNote.id = id;
     dataObject.notes[id] = updatedNote;
-    dataObject.notes[id].id = updatedNote.id;
   } fs.writeFile('./data.json', JSON.stringify(dataObject, null, 2), err => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'An unexpected error occurred.' });
     } else {
-      res.status(200).json(updatedNote[id]);
+      res.status(200).json(updatedNote);
     }
   });
 });
