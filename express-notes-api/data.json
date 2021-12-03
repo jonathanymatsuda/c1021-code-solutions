@@ -1,5 +1,5 @@
 {
-  "nextId": 20,
+  "nextId": 22,
   "notes": {
     "2": {
       "id": 2,
@@ -10,7 +10,7 @@
       "content": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined."
     },
     "6": {
-      "content": "A closure is formed when a function retains access to variables in its lexicalala scope.",
+      "content": "A closure is formed when a function retains access to variables in its lexicallalalal",
       "id": 6
     }
   }
