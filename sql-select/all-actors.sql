@@ -1,2 +1,2 @@
 select *
-  from actors
+  from "actors";
