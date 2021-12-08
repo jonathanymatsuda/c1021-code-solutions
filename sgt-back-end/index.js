@@ -56,25 +56,42 @@ app.post('/api/grades', (req, res, next) => {
 
 });
 
-// app.put('/api/grades/:gradeId', (req, res, next) => {
-//   const gradeId = Number(req.params.gradeId);
-//   const newGrade = req.body;
-//   const grade = Number(newGrade.score);
-//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     res.status(400).json({ error: 'gradeId must be a positive integer' });
-//   } else if (!Number.isInteger(grade) || grade < 0 || grade > 100) {
-//     res.status(400).json({ error: 'score must be valid (0-100)' });
-//   } else if (newGrade.name === undefined || newGrade.course === undefined || newGrade.score === undefined) {
-//     res.status(400).json({ error: 'Must be a valid input' });
-//   }
-//   const values = [newGrade.name, newGrade.course, newGrade.score];
-//   const sql = `
-//     update "grades"
-//       set "name" = $1
-//           "course" = $2
-//           "score" = $3
-//   `
-// );
+app.put('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = Number(req.params.gradeId);
+  const updateGrade = req.body;
+  const grade = Number(updateGrade.score);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({ error: 'gradeId must be a positive integer' });
+    return;
+  } else if (!Number.isInteger(grade) || grade < 0 || grade > 100) {
+    res.status(400).json({ error: 'score must be valid (0-100)' });
+    return;
+  } else if (updateGrade.name === undefined || updateGrade.course === undefined || updateGrade.score === undefined) {
+    res.status(400).json({ error: 'Must be a valid input' });
+    return;
+  }
+  const values = [updateGrade.name, updateGrade.course, updateGrade.score, gradeId];
+  const sql = `
+    update "grades"
+      set "name" = $1,
+          "course" = $2,
+          "score" = $3
+      where "gradeId" = $4
+  `;
+  db.query(sql, values)
+    .then(result => {
+      const loggedGrade = result.rows;
+      if (!loggedGrade) {
+        res.status(404).json({ error: `Cannot find grade with gradeId: ${gradeId}` });
+      } else {
+        res.status(200).json(loggedGrade);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: 'An unexpected error occurred' });
+    });
+});
 
 app.listen(3000, () => {
   console.log('Listening on port 3000'); //eslint-disable-line
