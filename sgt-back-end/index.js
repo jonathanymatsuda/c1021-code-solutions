@@ -70,7 +70,9 @@ app.post('/api/grades', (req, res, next) => {
 //   const values = [newGrade.name, newGrade.course, newGrade.score];
 //   const sql = `
 //     update "grades"
-//     set "grades" =
+//       set "name" = $1
+//           "course" = $2
+//           "score" = $3
 //   `
 // );
 
