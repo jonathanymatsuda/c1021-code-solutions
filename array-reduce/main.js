@@ -27,4 +27,16 @@ const product = numbers.reduce((previousValue, currentValue) => {
 });
 console.log('product of array:', product);
 
-// const balance = account.reduce(())
+const balance = account.reduce((total, transaction) => {
+  if (transaction.type === 'deposit') {
+    return total + transaction.amount;
+  } else {
+    return total - transaction.amount;
+  }
+}, 0);
+console.log('balance is', balance);
+
+const composite = traits.reduce((pokemon, trait) => {
+  return Object.assign(pokemon, trait);
+}, {});
+console.log('object with traits', composite);
