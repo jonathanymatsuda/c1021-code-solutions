@@ -30,9 +30,8 @@ console.log('product of array:', product);
 const balance = account.reduce((total, transaction) => {
   if (transaction.type === 'deposit') {
     return total + transaction.amount;
-  } else {
-    return total - transaction.amount;
   }
+  return total - transaction.amount;
 }, 0);
 console.log('balance is', balance);
 
