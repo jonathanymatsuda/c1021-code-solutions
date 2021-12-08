@@ -80,7 +80,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
   `;
   db.query(sql, values)
     .then(result => {
-      const loggedGrade = result.rows;
+      const loggedGrade = result.rows[gradeId];
       if (!loggedGrade) {
         res.status(404).json({ error: `Cannot find grade with gradeId: ${gradeId}` });
       } else {
