@@ -1,0 +1,38 @@
+button {
+  width: 100px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-three {
+  color: white;
+  background-color: rgb(53, 28, 116);
+}
+
+.button-six {
+  color: white;
+  background-color: rgb(103, 78, 167);
+}
+
+.button-nine {
+  color: white,;
+  background-color: rgb(224, 102, 102);
+}
+
+.button-twelve {
+  color: black;
+  background-color: rgb(246, 178, 106);
+}
+
+.button-fifteen {
+  color: black;
+  background-color: rgb(255, 255, 0);
+}
+
+.button-eighteen {
+  color: black;
+  background-color: whitesmoke;
+}
