@@ -1,4 +1,4 @@
-#root {
+#react-toggle {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: flex;
   align-items: center;
@@ -6,9 +6,8 @@
   padding: 10px;
 }
 
-.toggle-switch {
+.switch {
   position: absolute;
-  background-color: whitesmoke;
   border: 2px solid black;
   width: 50px;
   height: 20px;
@@ -16,12 +15,29 @@
 }
 
 .knob {
-  position: relative;
   width: 20px;
   height: 20px;
   background: white;
   border: 2px solid black;
   border-radius: 50%;
+}
+
+.knob-position {
+  position: relative;
   right: 0;
-  transition: left 0.3s ease-out;
+}
+
+.knob-position-active {
+  position: relative;
+  left: 29px;
+  transition: 0.5s ease-in;
+}
+
+.switch-background {
+  background-color: whitesmoke;
+}
+
+.switch-background-active {
+  background-color: rgb(106, 168, 80);
+  transition: 0.3s ease-in;
 }
