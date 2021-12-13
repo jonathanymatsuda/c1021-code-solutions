@@ -46,7 +46,7 @@ class Stopwatch extends React.Component {
     return (
       <div>
         <div onClick={this.reset} id="timer">
-          <p id="counter">{this.state.seconds}</p>
+          <p className="counter">{this.state.seconds}</p>
         </div>
         <div id="controls">
           <i onClick={this.handleClick} className={iClass}></i>
