@@ -1,0 +1,25 @@
+#root {
+  padding: 20px;
+}
+
+#timer {
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#counter {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+}
+
+#controls {
+  width: 150px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
