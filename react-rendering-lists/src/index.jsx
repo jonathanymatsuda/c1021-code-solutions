@@ -11,7 +11,7 @@ const pokedex = [
 
 function RenderPokemon() {
   const pokemonName = pokedex.map(pokemon =>
-  <li key={pokemon.name}>{pokemon.name}</li>
+  <li key={pokemon.number}>{pokemon.name}</li>
   );
   return (
    <ul>{pokemonName}</ul>
