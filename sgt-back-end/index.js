@@ -9,16 +9,14 @@ const db = new pg.Pool({
 });
 
 app.get('/api/grades', (req, res, next) => {
-  const grades = [];
   const sql = `
     select *
       from "grades"
   `;
-  grades.push(sql);
   db.query(sql)
     .then(result => {
       const grades = result.rows;
-      res.status(200).json({ grades });
+      res.status(200).json(grades);
     })
     .catch(error => {
       console.error(error);
@@ -47,7 +45,8 @@ app.post('/api/grades', (req, res, next) => {
   `;
   db.query(sql, values)
     .then(result => {
-      res.status(201).json(result.rows);
+      const grade = result.rows[0];
+      res.status(201).json(grade);
     })
     .catch(error => {
       console.error(error);
@@ -85,7 +84,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
       if (loggedGrade === undefined) {
         res.status(404).json({ error: `Cannot find grade with gradeId: ${gradeId}` });
       } else {
-        res.status(201).json(loggedGrade);
+        res.status(200).json(loggedGrade);
       }
     })
     .catch(error => {
