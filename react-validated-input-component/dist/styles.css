@@ -1,0 +1,25 @@
+#root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+  width: 200px;
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-times {
+  color: red;
+}
+
+p {
+  position: relative;
+  bottom: 9px;
+  right: 0;
+  left: 0;
+  width: 200px;
+  color: red;
+  font-size: 0.6rem;
+}
