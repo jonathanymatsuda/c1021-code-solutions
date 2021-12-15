@@ -21,17 +21,17 @@ class ValidatedInput extends React.Component {
     if (this.state.value.length === 0) {
       this.setState({
         message: 'A password is required',
-        icon: 'fas fa-times'
+        icon: 'fas fa-times red-color'
       });
     } else if (this.state.value.length < 8) {
       this.setState({
         message: 'Your password is too short',
-        icon: 'fas fa-times'
+        icon: 'fas fa-times red-color'
       });
     } else {
       this.setState({
         message: '',
-        icon: 'fas fa-check'
+        icon: 'fas fa-check green-color'
       });
     }
   }
