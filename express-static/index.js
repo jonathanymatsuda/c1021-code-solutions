@@ -2,10 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const absolute = path.join('__dirname', 'public');
-console.log(absolute);
+const absolute = path.join(__dirname, 'public');
 
-const middleware = express.static('public');
+const middleware = express.static(absolute);
 app.use(middleware);
 
 app.listen(3000, () => {
