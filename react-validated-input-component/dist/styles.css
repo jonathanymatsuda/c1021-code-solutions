@@ -1,0 +1,29 @@
+#root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+  width: 200px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+.green-color {
+  color: green;
+}
+
+.red-color {
+  color: red;
+}
+
+p {
+  position: relative;
+  bottom: 9px;
+  right: 0;
+  left: 0;
+  width: 200px;
+  color: red;
+  font-size: 0.6rem;
+}
