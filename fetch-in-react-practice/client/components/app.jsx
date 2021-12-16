@@ -18,12 +18,12 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(todoItems => this.setState({ todos: todoItems }))
       .catch(err => console.error(err));
-    /**
+  }
+  /**
      * Use fetch to send a GET request to `/api/todos`.
      * Then 😉, once the response JSON is received and parsed,
      * update state with the received todos.
      */
-  }
 
   addTodo(newTodo) {
     fetch('/api/todos', {
@@ -31,12 +31,13 @@ export default class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ newTodo })
+      body: JSON.stringify(newTodo)
     })
       .then(res => res.json())
-      .then(todoItems => this.setState({ todos: todoItems.concat(newTodo) }))
+      .then(todoItems => this.setState({ todos: this.state.todos.concat(newTodo) }))
       .catch(err => console.error(err));
-    /**
+  }
+  /**
     * Use fetch to send a POST request to `/api/todos`.
     * Then 😉, once the response JSON is received and parsed,
     * add the created todo to the state array.
@@ -50,9 +51,15 @@ export default class App extends React.Component {
     * TIP: Use Array.prototype.concat to create a new array containing the contents
     * of the old array, plus the object returned by the server.
     */
-  }
 
   toggleCompleted(todoId) {
+    fetch('/api/todos/todoId', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(todoId)
+    });
     /**
      * Find the index of the todo with the matching todoId in the state array.
      * Get its "isCompleted" status.
