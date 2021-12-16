@@ -53,14 +53,20 @@ export default class App extends React.Component {
     */
 
   toggleCompleted(todoId) {
-    fetch('/api/todos/todoId', {
+    const todoIndex = this.state.todos.findIndex(todoItem => todoItem.todoId === todoId);
+    const todoUpdated = { isCompleted: !this.state.todos[todoIndex].isCompleted };
+    fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(todoId)
-    });
-    /**
+      body: JSON.stringify(todoUpdated)
+    })
+      .then(res => res.json())
+      .then(todoUpdated => this.setState({ isCompleted: todoUpdated }))
+      .catch(err => console.error(err));
+  }
+  /**
      * Find the index of the todo with the matching todoId in the state array.
      * Get its "isCompleted" status.
      * Make a new object containing the opposite "isCompleted" status.
@@ -77,7 +83,6 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
-  }
 
   render() {
     return (
