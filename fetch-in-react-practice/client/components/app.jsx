@@ -64,9 +64,9 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(todoUpdated => {
-        const copy = this.state.todos.slice();
-        todoUpdated = copy[todoIndex];
-        this.setState({ todos: copy });
+        const copyOfTodo = this.state.todos.slice();
+        copyOfTodo[todoIndex] = todoUpdated;
+        this.setState({ todos: copyOfTodo });
       })
       .catch(err => console.error(err));
   }
