@@ -63,7 +63,11 @@ export default class App extends React.Component {
       body: JSON.stringify(todoUpdated)
     })
       .then(res => res.json())
-      .then(todoUpdated => this.setState({ isCompleted: todoUpdated }))
+      .then(todoUpdated => {
+        const copy = this.state.todos.slice();
+        todoUpdated = copy[todoIndex];
+        this.setState({ todos: todoUpdated });
+      })
       .catch(err => console.error(err));
   }
   /**
