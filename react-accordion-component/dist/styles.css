@@ -4,7 +4,7 @@
 }
 
 h3,
-li {
+p {
   width: 260px;
   padding: 10px;
   border: 2px solid black;
@@ -23,7 +23,11 @@ h3:hover {
   transition: 0.3s ease-in;
 }
 
-ul {
+p {
+  margin-top: 0;
+}
+
+.accordion {
   list-style-type: none;
   margin: 0;
   padding: 0;
