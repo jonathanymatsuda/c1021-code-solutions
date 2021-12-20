@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// const languageInfo = [
-//   { name: 'Hypertext Markup Language', description: 'HTML is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the web.' },
-//   { name: 'Cascading Style Sheets', description: 'CSS is a style sheet langauge used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerston technology of the World Wide web alongside HTML and Javascript.' },
-//   { name: 'JavaScript', description: 'JS is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.' }
-// ];
+const languageInfo = [
+  { id: 1, name: 'Hypertext Markup Language', description: 'HTML is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the web.' },
+  { id: 2, name: 'Cascading Style Sheets', description: 'CSS is a style sheet langauge used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerston technology of the World Wide web alongside HTML and Javascript.' },
+  { id: 3, name: 'JavaScript', description: 'JS is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.' }
+];
 
 class Accordion extends React.Component {
   constructor(props) {
@@ -13,22 +13,34 @@ class Accordion extends React.Component {
     this.state = {
       isClicked: false
     };
+    this.toggleText = this.toggleText.bind(this);
+  }
+
+  toggleText() {
+    if (event.target.matches('.language-name')) {
+      for (let i = 0; i < languageInfo.length; i++) {
+        if (Number(event.target.closest('h3').getAttribute('id')) === Number(i.id)) {
+          this.setState({ isClicked: !this.state.isClicked });
+        } else {
+          this.setState({ isClicked: false });
+        }
+      }
+    }
   }
 
   render() {
-    return <p>Test</p>;
-  //   const language = languageInfo.map(selection =>
-  //     <React.Fragment key={languageInfo.name}>
-  //       <h3>{languageInfo.name}</h3>
-  //       <p>{languageInfo.description}</p>
-  //     </React.Fragment>
-  //   );
-  //   return (
-  //     <div className='accordion'>
-  //       {language}
-  //     </div>
-  //   );
-  // }
+    const openClose = this.state.isClicked ? '' : 'hidden';
+    const language = languageInfo.map(selection =>
+      <React.Fragment key={selection.id}>
+        <h3 className='language-name' id={selection.id} onClick={this.toggleText}>{selection.name}</h3>
+        <p className={openClose}>{selection.description}</p>
+      </React.Fragment>
+    );
+    return (
+      <div className='accordion'>
+        {language}
+      </div>
+    );
   }
 }
 
