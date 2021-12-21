@@ -18,7 +18,7 @@ export default class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('caption', this.state.capiton);
+    formData.append('caption', this.state.caption);
     formData.append('image', this.fileInputRef.current.files[0]);
     fetch('/api/uploads', {
       method: 'POST',
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log('result body:', result);
+        console.log(result);
         this.setState({ caption: '' });
         this.fileInputRef.current.value = null;
       })
