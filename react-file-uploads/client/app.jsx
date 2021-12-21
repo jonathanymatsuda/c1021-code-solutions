@@ -24,8 +24,15 @@ export default class App extends React.Component {
       method: 'POST',
       body: formData
     })
-      .then(res => res.json());
-    /**
+      .then(response => response.json())
+      .then(result => {
+        console.log('result:', result);
+        this.setState({ caption: '' });
+        this.fileInputRef.current.value = null;
+      })
+      .catch(err => console.error(err));
+  }
+  /**
      * Prevent the browser's default behavior for form submissions.
      *
      * Create a `new` FormData object.
@@ -54,7 +61,6 @@ export default class App extends React.Component {
      * https://reactjs.org/docs/uncontrolled-components.html#the-file-input-tag
      * https://reactjs.org/docs/refs-and-the-dom.html
      */
-  }
 
   render() {
     return (
