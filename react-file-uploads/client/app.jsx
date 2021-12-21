@@ -26,7 +26,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log('result:', result);
+        console.log('result body:', result);
         this.setState({ caption: '' });
         this.fileInputRef.current.value = null;
       })
