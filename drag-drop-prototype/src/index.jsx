@@ -4,47 +4,38 @@ import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 
 const kanbanList = [
-  { id: 1, name: 'To Do', description: 'Finish React Challenges' },
-  { id: 2, name: 'In progress', description: 'Get a job' },
-  { id: 3, name: 'Done', description: 'Finish Planning' }
+  { id: 1, name: 'To Do', task: 'Finish React Challenges' },
+  { id: 2, name: 'In progress', task: 'Get a job' },
+  { id: 3, name: 'Done', task: 'Finish Planning' }
 ];
 
 class Drag extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false,
-      currentId: null
+      currentId: null,
+      deltaAxis: {
+        x: 0,
+        y: 0
+      }
     };
-    this.toggleText = this.toggleText.bind(this);
+    this.test = this.test.bind(this);
   }
 
-  toggleText() {
-    if (event.target.matches('.language-name')) {
-      if (Number(event.target.getAttribute('id')) === this.state.currentId) {
-        this.setState({
-          isClicked: false,
-          currentId: null
-        });
-      } else {
-        this.setState({
-          isClicked: true,
-          currentId: Number(event.target.getAttribute('id'))
-        });
-      }
-    }
+  test() {
+    this.setState({ axis: 'x' });
   }
 
   render() {
     const taskRender = kanbanList.map(selection =>
       <React.Fragment key={selection.id}>
-        <span className='language-name' id={selection.id} onClick={this.toggleText}>{selection.name}
-          <Draggable><p>{selection.description}</p></Draggable>
-        </span>
+        <ul className='language-name'>{selection.name}
+          <Draggable grid={[200, 200]}><li id={selection.id}>{selection.task}</li></Draggable>
+        </ul>
       </React.Fragment>
     );
     return (
-      <div className='accordion'>
+      <div className='board'>
         {taskRender}
       </div>
     );

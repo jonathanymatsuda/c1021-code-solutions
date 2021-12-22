@@ -13,7 +13,7 @@ header {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-span {
+ul {
   text-align: center;
   width: 260px;
   padding: 10px;
@@ -21,29 +21,31 @@ span {
   background-color: #d5ebf2;
   margin: 5px;
   border-radius: 5px;
-  cursor: pointer;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+  position: relative;
 }
 
-p {
+li {
   width: 235px;
   padding: 10px;
   border: 2px solid black;
   background-color: lightcoral;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: move;
+  list-style-type: none;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
-p:hover {
+li:hover {
   background-color: orangered;
   transition: 0.3s ease-in;
 }
 
-.accordion {
+.board {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
