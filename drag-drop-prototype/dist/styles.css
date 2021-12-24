@@ -20,6 +20,10 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
+div {
+  display: flex;
+}
+
 header {
   text-align: center;
   border-bottom: 1px solid rgb(101, 94, 94);
@@ -35,8 +39,8 @@ li {
   padding: 10px;
   margin-bottom: 10px;
   border: 2px solid black;
-  background-color: lightcoral;
   border-radius: 5px;
+  background-color: orange;
   cursor: move;
   list-style-type: none;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
