@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import '../dist/output.css';
 
 const kanbanList = [
   {
@@ -80,7 +81,7 @@ class Column extends React.Component {
       <Draggable draggableId={`column-${this.props.column.columnOrder}`} index={this.props.index} type="column">
        {provided => (
           <div className="cards" {...provided.draggableProps} ref={provided.innerRef}> DRAGGABLE
-            <h3 {...provided.dragHandleProps} >{this.props.column.name}</h3>
+            <h3 {...provided.dragHandleProps} className='font-bold underline font-sans text-5xl'>{this.props.column.name}</h3>
             <Droppable droppableId={`column-${this.props.column.columnId}`} type="task">
               {provided => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}> DROPPABLE (VERT)
