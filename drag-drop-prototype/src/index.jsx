@@ -1,7 +1,5 @@
-// Using react-beautiful-dnd
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '@atlaskit/css-reset';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
@@ -67,43 +65,46 @@ const kanbanList = [
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  background-color: white;
   margin: 8px;
-  border: 1px solid grey;
-  border-radius: 2px
+  border-radius: 2px;
+  border: 1px solid black;
+  padding: 10px;
   `;
-
-class Column extends React.Component {
-  render() {
-    return (
-      <Draggable draggableId={`${this.props.column.columnOrder}`} index={this.props.index} type="column">
-       {provided => (
-          <ul className="cards" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-          <h3>{this.props.column.name}</h3>
-          <Droppable droppableId={`${this.props.column.columnId}`} type="task">
-            {provided => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {this.props.column.todos.map((todo, index) =>
-                  <Todo key={todo.todoId} todo={todo} index={index} />
-                )}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </ul>
-       )}
-      </Draggable>
-    );
-  }
-}
 
 class Todo extends React.Component {
   render() {
     return (
-      <Draggable draggableId={`${this.props.todo.todoId}`} index={this.props.index}>
+    <Draggable draggableId={`todo-${this.props.todo.todoId}`} index={this.props.todo.todoId} type="task">
+       {provided => (
+          <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+             {this.props.todo.task} DRAGGABLE
+          </li>
+       )}
+    </Draggable>
+    );
+  }
+}
+
+class Column extends React.Component {
+  render() {
+    return (
+      <Draggable draggableId={`column-${this.props.column.columnId}`} index={this.props.index} type="column">
         {provided => (
-        <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-          {this.props.todo.task}
-        </li>
+          <div className="cards" {...provided.draggableProps} ref={provided.innerRef}>DRAGGABLE
+            <h3 {...provided.dragHandleProps} >{this.props.column.name}</h3>
+            <Droppable droppableId={`column-${this.props.column.columnId}`} type="task">
+              {provided => (
+                <ul {...provided.droppableProps} ref={provided.innerRef}> DROPPABLE
+                  {this.props.column.todos.map(todo =>
+                    <Todo ref={provided.innerRef} key={todo.todoId} todo={todo} index={todo.todoId} />
+                  )}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </div>
         )}
       </Draggable>
     );
@@ -132,7 +133,16 @@ class DragApp extends React.Component {
       kanbanList.splice(destination.index, 0, newColumnOrder);
       this.setState({ kanbanList: this.state.kanbanList });
     }
-
+    // Being able to drag and drop from columns and between columns: (pseudocode)
+    // Find current index of the column we dragged from - fromColumn
+    // Find current index of column we dragged to - toColumn
+    // Get the drag source column
+    // Get the current todos array from the drag source column
+    // Get the drag desitnation column
+    // Get the current todos array from the drag destination column
+    // Splice source todos array at source index for 1 element and assign spliced item to variable todo
+    // Splice variable todo into the destination todo array at destination index
+    // Call setState kanbanList to this.state.kanbanList
     const fromColumnIndex = this.state.kanbanList.findIndex(column => {
       return source.droppableId === column.columnId.toString();
     });
@@ -141,16 +151,6 @@ class DragApp extends React.Component {
       return destination.droppableId === column.columnId.toString();
 
     });
-      // Being able to drag and drop from columns and between columns: (pseudocode)
-      // Find current index of the column we dragged from - fromColumn
-      // Find current index of column we dragged to - toColumn
-      // Get the drag source column
-      // Get the current todos array from the drag source column
-      // Get the drag desitnation column
-      // Get the current todos array from the drag destination column
-      // Splice source todos array at source index for 1 element and assign spliced item to variable todo
-      // Splice variable todo into the destination todo array at destination index
-      // Call setState kanbanList to this.state.kanbanList
     const fromColumn = kanbanList[fromColumnIndex];
     const toColumn = kanbanList[toColumnIndex];
     const fromTodos = fromColumn.todos;
@@ -162,62 +162,21 @@ class DragApp extends React.Component {
 
   render() {
     return (
-     <DragDropContext onDragEnd={this.onDragEnd}>
+      <DragDropContext onDragEnd={this.onDragEnd} onBeforeDragStart={this.onBeforeDragStart}>DRAGDROPCONTEXT
         <Droppable droppableId="anywhere" direction="horizontal" type="column">
-         {provided => (
-          <Container {...provided.droppableProps} ref={provided.innerRef}>
-            {kanbanList.map((column, index) => {
-              const tasks = column.todos.map(todo => todo.task);
-              return <Column key={column.columnId} column={column} tasks={tasks} index={index} />;
-            })}
-            {provided.placeholder}
-          </Container>
-         )}
-       </Droppable>
-    </DragDropContext>
+          {provided => (
+            <Container {...provided.droppableProps} ref={provided.innerRef}>DROPPABLE
+              {kanbanList.map((column, index) => {
+                const tasks = column.todos.map(todo => todo.task);
+                return <Column key={column.columnId} column={column} tasks={tasks} index={index} />;
+              })}
+              {provided.placeholder}
+            </Container>
+          )}
+        </Droppable>
+      </DragDropContext>
     );
   }
-
-  // With drag column attempt:
-  //   const kanRender = kanbanList.map((column, index) =>
-  //   <Draggable key={column.columnId} draggableId={`${column.columnId}`} index={index} type='column'>
-  //     {provided => (
-  //       <div {...provided.draggableProps} ref={provided.innerRef}>
-  //        <Droppable droppableId={`${column.columnId}`} key={column.columnId}>
-  //          {(provided, snapshot) => (
-  //            <ul className="cards" ref={provided.innerRef} {...provided.droppableProps} type='task'>
-  //             <h3>{column.name}</h3>
-  //              {column.todos.map((todo, index) =>
-  //                <Draggable draggableId={`${todo.todoId}`} key={todo.todoId} index={index}>
-  //                  {(provided, snapshot) => (
-  //                    <li className='todoItem' {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-  //                      {todo.task}
-  //                    </li>
-  //                  )}
-  //                </Draggable>
-  //              )}
-  //              {provided.placeholder}
-  //            </ul>
-  //          )}
-  //        </Droppable>
-  //       <Handle {...provided.dragHandleProps} />
-  //      </div>
-  //     )}
-  //   </Draggable>
-  //   );
-  //   return (
-  // <DragDropContext onDragEnd={this.onDragEnd}>
-  //   <Droppable droppableId='all-columns' direction='horizontal' type='column'>
-  //     {provided => (
-  //       <div className='board' {...provided.droppableProps} ref={provided.innerRef}>
-  //         {kanRender}
-  //         {provided.placeholder}
-  //       </div>
-  //     )}
-  //   </Droppable>
-  // </DragDropContext>
-  //   );
-  // }
 }
 
 ReactDOM.render(<DragApp />, document.querySelector('#root'));
