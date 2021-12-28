@@ -1,12 +1,12 @@
 #root {
   font-family: Arial, Helvetica, sans-serif;
   padding: 5px;
-  border: 1px solid pink;
+  border: 5px solid pink;
 }
 
 .cards {
   position: relative;
-  width: 260px;
+  width: 305px;
   height: 1000px;
   padding: 10px;
   border: 2px solid black;
@@ -20,12 +20,16 @@ header {
   text-align: center;
   border-bottom: 1px solid rgb(101, 94, 94);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
 }
 
 ul {
-  border: 2px solid green;
+  border: 5px solid green;
   width: 260px;
   height: 400px;
+  list-style-type: none;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 
 h3 {
@@ -33,14 +37,13 @@ h3 {
 }
 
 li {
-  width: 235px;
+  width: 200px;
   padding: 10px;
   margin-bottom: 10px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: orange;
   cursor: move;
-  list-style-type: none;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
