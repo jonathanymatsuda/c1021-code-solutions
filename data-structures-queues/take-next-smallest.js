@@ -1,17 +1,14 @@
 /* exported takeNextSmallest */
 
 function takeNextSmallest(queue) {
-  const frontValue = queue.dequeue();
-  const secondValue = queue.dequeue();
-  if (frontValue === undefined) {
-    return undefined;
-  } else if (secondValue === undefined) {
-    return frontValue;
-  }
   while (queue.peek() !== undefined) {
-    if (frontValue < secondValue) {
-      queue.enqueue(secondValue);
-      return secondValue;
+    const frontValue = queue.dequeue();
+    if (frontValue <= queue.peek()) {
+      return frontValue;
+    } else if (frontValue > queue.peek()) {
+      queue.enqueue(frontValue);
+    } else {
+      return frontValue;
     }
   }
 }
