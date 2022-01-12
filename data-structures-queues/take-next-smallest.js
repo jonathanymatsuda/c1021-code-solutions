@@ -8,7 +8,10 @@ function takeNextSmallest(queue) {
   } else if (secondValue === undefined) {
     return frontValue;
   }
-  if (frontValue <= secondValue) {
-    return frontValue;
+  while (queue.peek() !== undefined) {
+    if (frontValue < secondValue) {
+      queue.enqueue(secondValue);
+      return secondValue;
+    }
   }
 }
