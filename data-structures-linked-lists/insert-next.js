@@ -2,8 +2,7 @@
 /* exported insertNext */
 
 function insertNext(list, value) {
-  if (list.next !== undefined) {
-    list.next = new LinkedList(value);
-    return list.next;
-  }
+  const newList = new LinkedList(value);
+  newList.next = list.next;
+  list.next = newList;
 }
