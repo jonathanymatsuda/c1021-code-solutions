@@ -7,47 +7,50 @@ const $pokemonImage = document.querySelector('.pokemon-image');
 var imagePosition = 0;
 var imageArray = ['images/025.png', 'images/001.png', 'images/004.png', 'images/007.png', 'images/039.png'];
 
-const imageForward = () => {
+$arrowLeft.addEventListener('click', imageBackward);
+$arrowRight.addEventListener('click', imageForward);
+$circleContainer.addEventListener('click', circleClick);
+
+function imageForward() {
   imagePosition++;
   if (imagePosition >= imageArray.length) {
     imagePosition = 0;
   }
   $pokemonImage.setAttribute('src', imageArray[imagePosition]);
   circleIconChange();
-};
+  clearInterval(timerInterval);
+  timerInterval = setInterval(imageForward, 3000);
+}
 
-const imageBackward = () => {
+function imageBackward() {
   imagePosition--;
   if (imagePosition < 0) {
     imagePosition = imageArray.length - 1;
   }
   $pokemonImage.setAttribute('src', imageArray[imagePosition]);
   circleIconChange();
-};
+  clearInterval(timerInterval);
+  timerInterval = setInterval(imageForward, 3000);
+}
 
-const circleIconChange = () => {
+function circleClick(event) {
+  const id = Number(event.target.getAttribute('circleid'));
+  if ($circles[id] === event.target) {
+    imagePosition = id;
+    $pokemonImage.setAttribute('src', imageArray[imagePosition]);
+  }
+  circleIconChange();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(imageForward, 3000);
+}
+
+function circleIconChange() {
   for (let circleTracker = 0; circleTracker < imageArray.length; circleTracker++) {
     $circles[circleTracker].className = 'far fa-circle ml-10';
     if (imagePosition === circleTracker) {
       $circles[circleTracker].className = 'fas fa-circle ml-10';
     }
   }
-};
+}
 
-const circleClick = event => {
-  if (event.target.matches('.circle')) {
-    for (let circleTracker = 0; circleTracker < imageArray.length; circleTracker++) {
-      if ($circles[circleTracker] === event.target) {
-        $pokemonImage.setAttribute('src', imageArray[circleTracker]);
-        $circles[circleTracker].className = 'fas fa-circle ml-10';
-        imagePosition = circleTracker;
-      } else {
-        $circles[circleTracker].className = 'far fa-circle ml-10';
-      }
-    }
-  }
-};
-
-$arrowLeft.addEventListener('click', imageBackward);
-$arrowRight.addEventListener('click', imageForward);
-$circleContainer.addEventListener('click', circleClick);
+var timerInterval = setInterval(imageForward, 3000);
