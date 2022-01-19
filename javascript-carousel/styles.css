@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  font-family: 'Courgette', cursive;
+  font-size: 2rem;
+}
+
+i {
+  cursor: pointer;
+  margin: 0.2rem;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-third {
+  width: 33.33%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
