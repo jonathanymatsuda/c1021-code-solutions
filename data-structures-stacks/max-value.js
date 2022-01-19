@@ -1,9 +1,12 @@
 /* exported maxValue */
 
 function maxValue(stack) {
-  const tempValueHold = [];
+  let biggestValue = -Infinity;
   while (stack.peek() !== undefined) {
-    tempValueHold.push(stack.pop());
+    const currentValue = stack.pop();
+    if (currentValue >= biggestValue) {
+      biggestValue = currentValue;
+    }
   }
-  return Math.max(...tempValueHold);
+  return biggestValue;
 }

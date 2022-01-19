@@ -1,9 +1,9 @@
 /* exported countValues */
 
 function countValues(stack) {
-  const tempValueHold = [];
-  while (stack.peek() !== undefined) {
-    tempValueHold.push(stack.pop());
+  let counter = 0;
+  while (stack.pop() !== undefined) {
+    counter++;
   }
-  return tempValueHold.length;
+  return counter;
 }
