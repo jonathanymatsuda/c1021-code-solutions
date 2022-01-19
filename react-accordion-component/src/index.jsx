@@ -14,10 +14,10 @@ class Accordion extends React.Component {
       isClicked: false,
       currentId: null
     };
-    this.toggleText = this.toggleText.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  toggleText() {
+  handleClick() {
     if (event.target.matches('.language-name')) {
       if (Number(event.target.getAttribute('id')) === this.state.currentId) {
         this.setState({
@@ -37,7 +37,7 @@ class Accordion extends React.Component {
     const openClose = this.state.currentId === languageInfo.id ? '' : 'hidden';
     const language = languageInfo.map(selection =>
       <React.Fragment key={selection.id}>
-        <h3 className='language-name' id={selection.id} onClick={this.toggleText}>{selection.name}</h3>
+        <h3 className='language-name' id={selection.id} onClick={this.handleClick}>{selection.name}</h3>
         <p className={openClose}>{selection.description}</p>
       </React.Fragment>
     );
