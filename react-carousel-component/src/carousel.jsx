@@ -12,6 +12,10 @@ export default class Carousel extends React.Component {
   }
 
   componentDidMount() {
+    this.autoplay();
+  }
+
+  autoplay() {
     this.setState({
       setIntervalStatus: setInterval(() => {
         if (this.state.currentImagePosition >= this.props.content.length - 1) {
@@ -25,7 +29,7 @@ export default class Carousel extends React.Component {
 
   handleArrowClick(event) {
     clearInterval(this.state.setIntervalStatus);
-    this.componentDidMount();
+    this.autoplay();
     if (event.target.className === 'fas fa-chevron-circle-right fa-2x') {
       this.setState({ currentImagePosition: this.state.currentImagePosition + 1 });
       if (this.state.currentImagePosition >= this.props.content.length - 1) {
@@ -42,7 +46,7 @@ export default class Carousel extends React.Component {
 
   handleCircleClick(event) {
     clearInterval(this.state.setIntervalStatus);
-    this.componentDidMount();
+    this.autoplay();
     const targetedCircle = Number(event.target.id);
     if (event.target.className === 'far fa-circle ml-10') {
       this.setState({ currentImagePosition: targetedCircle });
