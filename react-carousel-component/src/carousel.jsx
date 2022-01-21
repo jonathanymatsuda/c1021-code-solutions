@@ -4,24 +4,28 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImagePosition: 0
+      currentImagePosition: 0,
+      setIntervalStatus: null
     };
     this.handleArrowClick = this.handleArrowClick.bind(this);
     this.handleCircleClick = this.handleCircleClick.bind(this);
   }
 
   componentDidMount() {
-    setInterval(() => {
-      if (this.state.currentImagePosition >= this.props.content.length - 1) {
-        this.setState({ currentImagePosition: 0 });
-      } else {
-        this.setState({ currentImagePosition: this.state.currentImagePosition + 1 });
-      }
-    }, 3000);
+    this.setState({
+      setIntervalStatus: setInterval(() => {
+        if (this.state.currentImagePosition >= this.props.content.length - 1) {
+          this.setState({ currentImagePosition: 0 });
+        } else {
+          this.setState({ currentImagePosition: this.state.currentImagePosition + 1 });
+        }
+      }, 3000)
+    });
   }
 
   handleArrowClick(event) {
-    this.setState({ setIntervalStatus: !this.state.setIntervalStatus });
+    clearInterval(this.state.setIntervalStatus);
+    this.componentDidMount();
     if (event.target.className === 'fas fa-chevron-circle-right fa-2x') {
       this.setState({ currentImagePosition: this.state.currentImagePosition + 1 });
       if (this.state.currentImagePosition >= this.props.content.length - 1) {
@@ -37,6 +41,8 @@ export default class Carousel extends React.Component {
   }
 
   handleCircleClick(event) {
+    clearInterval(this.state.setIntervalStatus);
+    this.componentDidMount();
     const targetedCircle = Number(event.target.id);
     if (event.target.className === 'far fa-circle ml-10') {
       this.setState({ currentImagePosition: targetedCircle });
