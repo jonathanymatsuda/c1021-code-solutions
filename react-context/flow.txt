@@ -1,0 +1,41 @@
+User can sign up:
+- There are two main values that are being stored within the database in terms of sign up: userName and hashedPassword.
+- In the handleSubmit method of the AuthForm component the server is handling a post request and is checking if the user clicked on sign up or sign in the fetch request.
+This will dictate how the server will handle the incoming request.
+- The handleSubmit verifies if both a username and password were provided.
+- It is then sent back to the client as a JSON string.
+- Since the user is signing up based off the "action" a post request will be sent to the database and a password hash will occur.
+- The database will store the username and hashed password (with argon2)
+- It will then be sent back to the user as an object
+- Then the hash routing will occur.
+- In the browser, certain areas will change like the form button and anchor tag that is to the left of button
+- In the AuthPage class the text under the app will change.
+- Finally, the NavBar hashing will occur for the buttons on the top right.
+
+User can sign in:
+- Now that the user's credentials are stored in the database, they are able to sign in.
+- Like mentioned above the handleSubmit method in the AuthForm class will address whether the user is signing in or signing up.
+- Since we are signing in in this case, the fetch request in the handleSubmit method is going to be called with 'sign in'
+- If username or password are not defined or does not match there will be an error. This is where the database querying comes into play. A post request will match if there is a matching user in the system.
+- Argon2.verify will ensure that the hashed passwords will match
+- If it does not match a 401 error will be sent to the client.
+- If it does match a token will be created for the user upon sign in.
+- As part of the final authentication steps, in the AuthPage class the result of the handeSignIn expression is assigned to the onSign prop.
+  - I think handleSignIn in is mainly used for staying signed in but it is important to note that once the user is signed in the token gets stored localeStorage and state gets updated.
+- Hash routing then updates the page from the user's end perspective (this.renderPage() is mounted)
+
+User can stay signed in:
+- componentDidMount as well as handleSignIn is doing most of the work to allow the user to stay in even if the page is refreshed.
+- Once the token is stored from handleSignIn in localStorage componentDidMount retrieves the token (from window.localeStorage.getItem)
+- If the token is truthy the user property will be set to the token and isAuthorizing will be set to false. The user property will only be changed if the user signs out.
+- Then, as part of componentDidMount render will be called again.
+- This will update the page based off step 3 in this section.
+- As long as null is not a value of users, the app will stayed login.
+
+User can sign out:
+- handleSignOut mainly handles this portion of the application.
+- Once this method is triggered based off a click event, the token will be removed from locale storage and the user will be set to null.
+- renderPage() is then called in the render method in the Application class
+- Based off the results in step 2 in this section, the browser will be remdered again and ultimately signed out.
+- Because the token was removed and user is set to null there is no way for the application to know which user is signed in anymore.
+- Through hash routing, the page will get updated to the login form again.
